@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+    <item
+        android:id="@+id/add"
+        android:title="Add"
+        android:icon="@drawable/add"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/del"
+        android:title="Del"
+        android:icon="@drawable/delete"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/resort"
+        android:title="Resort"
+        android:icon="@drawable/resort"
+        app:showAsAction="always"/>
+</menu>
