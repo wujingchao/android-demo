@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".tool.OpenRemoteDebugActivity"
+        <activity android:name=".tool.remotedebug.OpenRemoteDebugActivity"
                   android:label="Tool/OpenRemoteDebug">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

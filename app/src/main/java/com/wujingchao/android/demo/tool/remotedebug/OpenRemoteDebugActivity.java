@@ -1,4 +1,4 @@
-package com.wujingchao.android.demo.tool;
+package com.wujingchao.android.demo.tool.remotedebug;
 
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
