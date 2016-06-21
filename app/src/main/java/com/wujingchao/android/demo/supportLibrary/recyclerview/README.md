@@ -5,6 +5,7 @@
 RecyclerView可以说是ListView和GridView的升级版本，提供了ListView和GridView的基础功能，并且有良好的扩展性，比如可以控制列表的布局和动画。该组件定制型太强，所以相对于ListView提出了很多新概念，刚接触可能会觉得比较复杂。
 
 先来看下效果图：
+
 ![瀑布流](http://o90rk2b64.bkt.clouddn.com/recyclerviewdemo.png)
 
 与RecyclerView相关的重要基础类:
@@ -217,7 +218,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
     adapter.setOnItemClickListener(this);
 ```
 
-完整的示例代码查看Github上面的源码:
+完整的示例代码查看Github上面的源码:)
 
 
 **参考资料**:[http://www.grokkingandroid.com/first-glance-androids-recyclerview/](http://www.grokkingandroid.com/first-glance-androids-recyclerview/)
