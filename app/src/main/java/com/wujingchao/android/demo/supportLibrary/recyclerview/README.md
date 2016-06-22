@@ -24,7 +24,7 @@ RecyclerView是android-support-library-v7里面的类，需要在gradle里面导
 
 ```
 compile 'com.android.support:recyclerview-v7:23.3.0'
-//或者 compile 'com.android.support:recyclerview-v7:+' 使用最新的版本
+//或者 compile 'com.android.support:cardview-v7:21.0.+'
 ```
 
 RecyclerView实现瀑布流的实现步骤如下，其实也就是通常使用RecyclerView的步骤：
@@ -215,11 +215,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
     recyclerView.setAdapter(adapter);
     recyclerView.addItemDecoration(new GridSpacingItemDecoration(2,10,true));
     recyclerView.setItemAnimator(new DefaultItemAnimator());
+    // use this setting to improve performance if you know that changes
+    // in content do not change the layout size of the RecyclerView
+    recyclerView.setHasFixedSize(true);
     adapter.setOnItemClickListener(this);
 ```
 
-完整的示例代码查看Github上面的源码:)
+完整的示例代码查看Github上面的[源码:)](https://github.com/wujingchao/android-demo/tree/master/app/src/main/java/com/wujingchao/android/demo/supportLibrary/recyclerview)
 
 
-**参考资料**:[http://www.grokkingandroid.com/first-glance-androids-recyclerview/](http://www.grokkingandroid.com/first-glance-androids-recyclerview/)
+**参考资料**:
+[http://www.grokkingandroid.com/first-glance-androids-recyclerview/](http://www.grokkingandroid.com/first-glance-androids-recyclerview/)
+
+[https://developer.android.com/training/material/lists-cards.html](https://developer.android.com/training/material/lists-cards.html)
 

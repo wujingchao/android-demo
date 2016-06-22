@@ -48,6 +48,10 @@ public class RecyclerViewActivity extends BaseActivity implements MyAdapter.OnIt
         //step 4 Create an ItemAnimator if needed and add it
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        recyclerView.setHasFixedSize(true);
+
         //step 5 Create zero or more listeners as needed and add them
         recyclerView.addOnItemTouchListener(new RecyclerView.SimpleOnItemTouchListener(){
             @Override
