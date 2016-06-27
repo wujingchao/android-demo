@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.wujingchao.android.demo.supportLibrary.percentlayout.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/view1"
+        app:layout_widthPercent="10%"
+        app:layout_heightPercent="10%"
+        android:background="#333366"/>
+
+    <View
+        app:layout_widthPercent="20%"
+        app:layout_heightPercent="10%"
+        android:background="#999933"/>
+
+    <View
+        app:layout_widthPercent="30%"
+        app:layout_heightPercent="10%"
+        android:background="#996600"/>
+
+    <View
+        app:layout_widthPercent="40%"
+        app:layout_heightPercent="10%"
+        android:background="#333333"/>
+
+
+
+</com.wujingchao.android.demo.supportLibrary.percentlayout.PercentLinearLayout>

@@ -33,11 +33,21 @@
                 <category android:name="com.wujingchao.category.DEMO" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".tool.remotedebug.OpenRemoteDebugActivity"
-                  android:label="Tool/OpenRemoteDebug">
+        <activity
+            android:name=".tool.remotedebug.OpenRemoteDebugActivity"
+            android:label="Tool/OpenRemoteDebug">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.wujingchao.category.DEMO" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".supportLibrary.percentlayout.PercentLayoutActivity"
+                  android:label="SupportLibrary/PercentLayout">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="com.wujingchao.category.DEMO" />
             </intent-filter>
         </activity>
