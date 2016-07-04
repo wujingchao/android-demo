@@ -1,4 +1,254 @@
 <resources>
     <string name="app_name">Demo</string>
     <string name="action_settings">Settings</string>
+
+
+    <string-array name="magical">
+
+        <item>Deep magical trees murmuring breeze, carry me home\n
+        微风吹过神秘的深树发出低语声，带我回家</item>
+
+        <item>"Tell stories of hope, hope there\'s a light\n
+        讲述着希望的故事，希望有一盏灯</item>
+
+        <item>Tight energy thieves laying their wreaths outside unmarked doors\n
+        拮据的能量窃贼把他们的花圈扔在了无名碑外</item>
+
+        <item>A war is just a recourse to show that we\'re bored\n
+        战争只是来证明我们无聊的一场追索</item>
+
+        <item>Battles and wastelands, battles and wastelands in me\n
+        战役与荒原，我心中的战役与荒原</item>
+
+        <item>Magical tree where nobody grieves the island, I see\n
+        神秘的树木，那里没有人为这岛屿悲伤，我知道</item>
+
+        <item>Battles and wastelands, battles and wastelands in me\n
+        战役与荒原，我心中的战役与荒原</item>
+
+        <item>Magical tree where nobody grieves, the island I see is in me\n
+        神秘的树木，那里没有人悲伤，我看见的岛屿在我心中</item>
+
+        <item>Poor tourist you\'re lost you\'re just a cost to average man\n
+        可怜的旅行者，你迷路了，你只是普通人的一个牺牲品</item>
+
+        <item>A plan leads to a plan and you\'re told that you can\n
+        一个计划导致了另一个计划，你被告知你可以</item>
+
+        <item>You can be just who you want be what you feel, be someone real\n
+        你可以成为你想成为的人，你所感受的人，做真实的自己</item>
+
+        <item>Climb high to excess, and you\'ll be a success\n
+        爬到最高点，你将成为一名成功者</item>
+
+        <item>Battles and wastelands, battles and wastelands in me\n
+        战役与荒原，我心中的战役与荒原</item>
+
+        <item>Magical tree where nobody grieves the island, I see\n
+        神秘的树木，那里没有人为这岛屿悲伤，我知道</item>
+
+        <item>Battles and wastelands, battles and wastelands in me\n
+        战役与荒原，我心中的战役与荒原</item>
+
+        <item>Magical tree where nobody grieves, the island I see is in me\n
+        神秘的树木，那里没有人悲伤，我看见的岛屿在我心中</item>
+
+        <item>Battles and wastelands, battles and wastelands in me\n
+        战役与荒原，我心中的战役与荒原</item>
+
+        <item>Magical tree where nobody grieves the island, I see\n
+        神秘的树木，那里没有人为这岛屿悲伤，我知道</item>
+
+        <item>Battles and wastelands, battles and wastelands in me\n
+        战役与荒原，我心中的战役与荒原</item>
+
+        <item>Magical tree where nobody grieves, the island I see is in me\n
+        神秘的树木，那里没有人悲伤，我看见的岛屿在我心中</item>
+
+    </string-array>
+
+
+    <string-array name="grace">
+        <item>I see you walking down the street\n
+        我看到你漫步在街头</item>
+        <item>I see you coming back inside\n
+        我看到你回来</item>
+        <item>I know you’re wondering\n
+        我知道你想要了解</item>
+        <item>what all this means to you\n
+        这一切对你意味着什么</item>
+        <item>I know you’re breaking down tonight\n
+        我知道你在今夜很受伤</item>
+        <item>but do you know how much it hurts\n
+        但你知道（我）有多痛么</item>
+        <item>to see you closing back that door\n
+        当我看见你关上了那扇门</item>
+        <item>I love you love you love you\n
+        我爱你 爱你 爱你</item>
+        <item>just the way you are\n
+        只是因为 你是你</item>
+        <item>Love you love you love you\n
+        爱你 爱你 爱你</item>
+        <item>the way you are\n
+        因为 你是你</item>
+        <item>There’s nothing in this world\n
+        这个世界里没有什么</item>
+        <item>that I would ever want\n
+        是比你能回到我的怀中</item>
+        <item>than to have you back in my arms.\n
+        更令我想要拥有的东西</item>
+        <item>I want to see you really smile\n
+        我想要看到你真正的笑容</item>
+        <item>Do you know it’s been a while\n
+        你知道 已有一段时间</item>
+        <item>Have you noticed that\n
+        你有注意到么</item>
+        <item>you’re far away from home\n
+        你离家远了起来</item>
+        <item>Do you like it where you are\n
+        你喜欢这个地方么</item>
+        <item>Do they treat you like a star\n
+        他们把你当明星么</item>
+        <item>Do they sing for you\n
+        他们为你唱的歌</item>
+        <item>the songs you always liked\n
+        你总是喜欢么</item>
+        <item>You’re scared of all the lies\n
+        你害怕所有谎言</item>
+        <item>All you want is a sign\n
+        你需要一个目标</item>
+        <item>Telling you where to go\n
+        告诉你应去向何方</item>
+        <item>There’s no other way to turn\n
+        没有回转的余地</item>
+        <item>The only lesson you learned\n
+        你唯一学到的一课是</item>
+        <item>is to never forget your way back home\n
+        永远不要忘记回家的路</item>
+        <item>I love you love you love you\n
+        我爱你 爱你 爱你</item>
+        <item>just the way you are\n
+        只是因为 你是你</item>
+        <item>Love you love you love you\n
+        爱你 爱你 爱你</item>
+        <item>the way you are\n
+        因为 你是你</item>
+        <item>There’s nothing in this world\n
+        这个世界里没有什么</item>
+        <item>that I would ever want\n
+        是比你能回到我的怀中</item>
+        <item>than to have you back in my arms.\n
+        更令我想要拥有的东西</item>
+        <item>Waiting for you\n
+        等待着你</item>
+        <item>deep in the night\n
+        在深夜里</item>
+        <item>to tuck you into bed\n
+        哄你入眠</item>
+        <item>I’m waiting for you\n
+        我在等着你</item>
+        <item>arms open wide\n
+        张开的双臂</item>
+        <item>I want to see you smile tonight\n
+        今夜我想看见你的笑颜</item>
+        <item>Love you love you love you\n
+        爱你 爱你 爱你</item>
+        <item>just the way you are\n
+        只是因为 你是你</item>
+        <item>Love you love you love you\n
+        爱你 爱你 爱你</item>
+        <item>the way you are\n
+        因为 你是你</item>
+        <item>There’s nothing in this world\n
+        这个世界里没有什么</item>
+        <item>that I would ever want\n
+        是比你能回到我的怀中</item>
+        <item>than to have you back in my arms.\n
+        更令我想要拥有的东西</item>
+    </string-array>
+    
+    <string-array name="white">
+        <item>Not sure if you know this\n
+        不确定你是否清楚</item>
+        <item>But when we first met\n
+        当我第一次见到你</item>
+        <item>I got so nervous I couldn\'t speak\n
+        我紧张到话都说不清楚</item>
+        <item>In that very moment\n
+        在那一刻</item>
+        <item>I found the one and\n
+        我找到了我的唯一</item>
+        <item>my life had found this missing piece\n
+        终于弥补了我生命中的缺失</item>
+        <item>So as long as I live I love you\n
+        所以我会永远爱你</item>
+        <item>Will heaven hold you\n
+        会一直拥抱守护你</item>
+        <item>You look so beautiful in white\n
+        穿着白色婚纱的你如此美丽动人</item>
+        <item>And from now to my very last breath\n
+        直到我生命结束</item>
+        <item>This day I\'ll cherish\n
+        我都会铭记这一天</item>
+        <item>You look so beautiful in white Tonight\n
+        今晚穿着白色婚纱的你是如此美丽动人</item>
+        <item>What we have is timeless\n
+        我们拥有的是天长地久</item>
+        <item>My love is endless\n
+        我对你的爱是无穷无尽</item>
+        <item>And with this dream I Say to the world\n
+        我要把这个梦想告诉全世界</item>
+        <item>You\'re my every reason you\'re all\n
+        你是我全部的动力</item>
+        <item>that I believe in\n
+        你说的我全部相信</item>
+        <item>With all my heart I mean every word\n
+        每个字都由心而发</item>
+        <item>So as long as I live I love you\n
+        所以我会永远爱你</item>
+        <item>Will heaven and hold you\n
+        会一直拥抱守护你</item>
+        <item>You look so beautiful in white\n
+        穿着白色婚纱的你如此美丽动人</item>
+        <item>And from now to my very last breath\n
+        直到我生命结束</item>
+        <item>This day I\'ll cherish\n
+        我都会铭记这一天</item>
+        <item>You look so beautiful in white Tonight\n
+        今晚穿着白色婚纱的你是如此美丽动人</item>
+        <item>You look so beautiful in white\n
+        穿着白色婚纱的你如此美丽动人</item>
+        <item>so beautiful in white\n
+        穿着白色婚纱的你如此美丽动人</item>
+        <item>And if our daughter is what our future holds\n
+        如果我们以后生了一个女儿</item>
+        <item>I hope she has your eyes\n
+        我希望她也有你一般的眼睛</item>
+        <item>Finds love like you and I did\n
+        像你我一样遇到爱</item>
+        <item>Yeah, if she falls in love and we will let her go\n
+        当她坠入爱河我们就会放手</item>
+        <item>I\'ll walk her down the aisle\n
+        我会牵着她走过婚礼殿堂</item>
+        <item>She looks so beautiful in white\n
+        她穿着白色婚纱的样子一定也会很美</item>
+        <item>You look so beautiful in white\n
+        正如你一样</item>
+        <item>So as long as I live I love you\n
+        所以我会永远爱你</item>
+        <item>Will heaven hold you\n
+        会一直拥抱守护你</item>
+        <item>You look so beautiful in white\n
+        穿着白色婚纱的你如此美丽动人</item>
+        <item>And from now to my very last breath\n
+        直到我生命结束</item>
+        <item>This day I\'ll cherish\n
+        我都会铭记这一天</item>
+        <item>You look so beautiful in white Tonight\n
+        今晚穿着白色婚纱的你是如此美丽动人</item>
+        <item>You look so beautiful in white Tonight\n
+        今晚穿着白色婚纱的你是如此美丽动人</item>
+    </string-array>
+
+
 </resources>

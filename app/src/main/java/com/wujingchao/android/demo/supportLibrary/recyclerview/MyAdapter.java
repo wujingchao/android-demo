@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by wujingchao92@gmail.com on 2016/6/19.
  */
-public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
+class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
     private List<Integer> resIds;
 
@@ -22,7 +22,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_item,null);
+        View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_item,parent,false);
         return new MyViewHolder(item);
     }
 

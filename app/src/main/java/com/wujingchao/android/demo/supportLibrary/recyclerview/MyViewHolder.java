@@ -9,7 +9,7 @@ import com.wujingchao.android.demo.R;
 /**
  * Created by wujingchao92@gmail.com on 2016/6/19.
  */
-public class MyViewHolder extends RecyclerView.ViewHolder {
+class MyViewHolder extends RecyclerView.ViewHolder {
 
     ImageView imageView;
 

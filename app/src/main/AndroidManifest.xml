@@ -42,14 +42,29 @@
                 <category android:name="com.wujingchao.category.DEMO" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".supportLibrary.percentlayout.PercentLayoutActivity"
-                  android:label="SupportLibrary/PercentLayout">
+        <activity
+            android:name=".supportLibrary.percentlayout.PercentLayoutActivity"
+            android:label="SupportLibrary/PercentLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="com.wujingchao.category.DEMO" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".supportLibrary.design.MaterialDesignLibraryActivity"
+            android:label="SupportLibrary/MaterialDesign"
+            android:theme="@style/AppTheme.DayNight">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.wujingchao.category.DEMO" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".supportLibrary.design.MaterialDesignDetailActivity"
+            android:label="SupportLibrary/MaterialDesign2"
+            android:theme="@style/AppTheme.DayNight">
         </activity>
     </application>
 
