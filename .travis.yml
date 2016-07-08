@@ -1,4 +1,5 @@
 language: android
+install: ant deps
 android:
   components:
     - build-tools-21.1.1
