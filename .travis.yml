@@ -1,9 +1,10 @@
 language: android
-install: ant deps
 android:
   components:
     - build-tools-21.1.1
     - android-23
-
+script:  
+  - ./gradlew assembleRelease
+  
 before_install:
      - chmod +x gradlew
