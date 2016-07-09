@@ -1,9 +1,17 @@
 apply plugin: 'com.android.application'
+apply plugin: 'im.fir.plugin.gradle'
 apply plugin: 'android-apt'
 android {
+    signingConfigs {
+        release {
+            keyAlias System.getenv("keyAlias")
+            keyPassword System.getenv("keyPassword")
+            storeFile file('./android-demo.jks')
+            storePassword System.getenv("storePassword")
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
-
     defaultConfig {
         applicationId "com.wujingchao.android.demo"
         minSdkVersion 14
@@ -15,25 +23,21 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
-
     lintOptions {
-          checkReleaseBuilds false
-          // Or, if you prefer, you can continue to check for errors in release builds,
-          // but continue the build even when errors are found:
-          abortOnError false
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-
-
-
     apt 'com.jakewharton:butterknife-compiler:8.1.0'
-
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:design:23.3.0'
     compile 'com.android.support:support-v4:23.3.0'
@@ -42,4 +46,11 @@ dependencies {
     compile 'com.android.support:percent:23.3.0'
     compile 'com.jakewharton:butterknife:8.1.0'
     compile 'de.hdodenhof:circleimageview:2.0.0'
+}
+
+fir{
+    //必填 上传 fir.im apk 字段，否则无法上传 APP 到 fir.im
+    apiToken 'd293fe52e14eb0b82e73a97bc43b9be1'
+
+    //changeLog ''
 }
