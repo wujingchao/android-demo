@@ -13,11 +13,11 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +28,7 @@ import butterknife.OnItemClick;
  */
 public class MainActivity extends BaseActivity {
 
+    private static final String TAG = "MainActivity";
     @BindView(R.id.list)   ListView mListView;
     @BindView(R.id.toolbar) Toolbar toolbar;
 
@@ -59,7 +60,7 @@ public class MainActivity extends BaseActivity {
         PackageManager pm = getPackageManager();
         List<ResolveInfo> resolveInfos = pm.queryIntentActivities(intent,0);
         List<Map<String, Object>> data = new ArrayList<>();
-        Set<String> titles = new HashSet<>();
+        final List<String> titles = new ArrayList<>();
 
         for(ResolveInfo ri:resolveInfos) {
             //use actual path naming
@@ -99,6 +100,14 @@ public class MainActivity extends BaseActivity {
                 }
             }
         }
+        Collections.sort(data, new Comparator<Map<String, Object>>() {
+            @Override
+            public int compare(Map<String, Object> lhs, Map<String, Object> rhs) {
+                String l = (String) lhs.get("title");
+                String r = (String)rhs.get("title");
+                return l.compareToIgnoreCase(r);
+            }
+        });
         return data;
     }
 

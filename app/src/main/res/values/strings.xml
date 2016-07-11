@@ -166,7 +166,7 @@
         <item>than to have you back in my arms.\n
         更令我想要拥有的东西</item>
     </string-array>
-    
+
     <string-array name="white">
         <item>Not sure if you know this\n
         不确定你是否清楚</item>
@@ -248,6 +248,50 @@
         今晚穿着白色婚纱的你是如此美丽动人</item>
         <item>You look so beautiful in white Tonight\n
         今晚穿着白色婚纱的你是如此美丽动人</item>
+    </string-array>
+
+    <string-array name="training_title">
+        <item>Getting Started</item>
+        <item>Building Your First App</item>
+        <item>Supporting Different Devices</item>
+        <item>Managing the Activity Lifecycle</item>
+        <item>Building a Dynamic UI with Fragments</item>
+        <item>Saving Data</item>
+        <item>Interacting with Other Apps</item>
+    </string-array>
+
+    <string-array name="training_content">
+        <item>"Welcome to Training for Android developers. Here you\'ll find training classes that describe how to accomplish a specific task with code samples you can re-use in your app. Classes are organized into several groups you can see at the top-level of the left navigation.
+
+The first training guides below teach you the essentials for Android app development. If you\'re a new Android app developer, you should complete each of these classes in order.
+
+Various online video courses are also available if you\'d prefer an interactive video experience."</item>
+        <item>Welcome to Android application development!
+
+This class teaches you how to build your first Android app. You’ll learn how to create an Android project and run a debuggable version of the app. You\'ll also learn some fundamentals of Android app design, including how to build a simple user interface and handle user input.</item>
+        <item>Android devices come in many shapes and sizes all around the world. With a wide range of device types, you have an opportunity to reach a huge audience with your app. In order to be as successful as possible on Android, your app needs to adapt to various device configurations. Some of the important variations that you should consider include different languages, screen sizes, and versions of the Android platform.
+
+This class teaches you how to use basic platform features that leverage alternative resources and other features so your app can provide an optimized user experience on a variety of Android-compatible devices, using a single application package (APK).</item>
+        <item>As a user navigates through, out of, and back to your app, the Activity instances in your app transition between different states in their lifecycle. For instance, when your activity starts for the first time, it comes to the foreground of the system and receives user focus. During this process, the Android system calls a series of lifecycle methods on the activity in which you set up the user interface and other components. If the user performs an action that starts another activity or switches to another app, the system calls another set of lifecycle methods on your activity as it moves into the background (where the activity is no longer visible, but the instance and its state remains intact).
+
+Within the lifecycle callback methods, you can declare how your activity behaves when the user leaves and re-enters the activity. For example, if you\'re building a streaming video player, you might pause the video and terminate the network connection when the user switches to another app. When the user returns, you can reconnect to the network and allow the user to resume the video from the same spot.
+
+This class explains important lifecycle callback methods that each Activity instance receives and how you can use them so your activity does what the user expects and does not consume system resources when your activity doesn\'t need them.</item>
+        <item>To create a dynamic and multi-pane user interface on Android, you need to encapsulate UI components and activity behaviors into modules that you can swap into and out of your activities. You can create these modules with the Fragment class, which behaves somewhat like a nested activity that can define its own layout and manage its own lifecycle.
+
+When a fragment specifies its own layout, it can be configured in different combinations with other fragments inside an activity to modify your layout configuration for different screen sizes (a small screen might show one fragment at a time, but a large screen can show two or more).
+
+This class shows you how to create a dynamic user experience with fragments and optimize your app\'s user experience for devices with different screen sizes, all while continuing to support devices running versions as old as Android 1.6.</item>
+        <item>Most Android apps need to save data, even if only to save information about the app state during onPause() so the user\'s progress is not lost. Most non-trivial apps also need to save user settings, and some apps must manage large amounts of information in files and databases. This class introduces you to the principal data storage options in Android, including:
+
+Saving key-value pairs of simple data types in a shared preferences file
+Saving arbitrary files in Android\'s file system
+Using databases managed by SQLite</item>
+        <item>An Android app typically has several activities. Each activity displays a user interface that allows the user to perform a specific task (such as view a map or take a photo). To take the user from one activity to another, your app must use an Intent to define your app\'s "intent" to do something. When you pass an Intent to the system with a method such as startActivity(), the system uses the Intent to identify and start the appropriate app component. Using intents even allows your app to start an activity that is contained in a separate app.
+
+An Intent can be explicit in order to start a specific component (a specific Activity instance) or implicit in order to start any component that can handle the intended action (such as "capture a photo").
+
+This class shows you how to use an Intent to perform some basic interactions with other apps, such as start another app, receive a result from that app, and make your app able to respond to intents from other apps.</item>
     </string-array>
 
 

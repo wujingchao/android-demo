@@ -4,6 +4,10 @@
 
 ![Demo](./QR Code.png)
 
+## App
+
+- [使用Fragment适配平板与手机](./app/src/main/java/com/wujingchao/android/demo/app/fragment/)
+
 ## View
 
 - [RecyclerView实现瀑布流](./app/src/main/java/com/wujingchao/android/demo/supportLibrary/recyclerview/)
