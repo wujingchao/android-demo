@@ -13,4 +13,4 @@ script:
 
 before_install:
      - chmod +x gradlew
-     - chmod +x accpet
+     - chmod +x accept
