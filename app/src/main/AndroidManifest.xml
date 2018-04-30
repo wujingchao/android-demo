@@ -3,12 +3,14 @@
     package="com.wujingchao.android.demo">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!--
         <action android:name="android.intent.action.MAIN" />
         <category android:name="com.wujingchao.category.DEMO" />
     -->
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -76,8 +78,34 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".os.memory.DebugMemoryActivity"
-            android:label="Os/DebugMemory">
+            android:name=".app.bitmap.DensityDemoActivity"
+            android:label="App/Density">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.wujingchao.category.DEMO" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".app.databinding.BasicDataBindingActivity"
+            android:label="App/DataBinding">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.wujingchao.category.DEMO" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".os.MaxFileDescriptorActivity"
+            android:label="Os/MaxFileDescriptor">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.wujingchao.category.DEMO" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".os.PipeDemo"
+            android:label="Os/PipeDemo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -131,3 +131,7 @@ tmp/
 
 #GitHub application codes (local and personal)
 github.properties
+
+#Cmake
+.externalNativeBuild
+CMakeFiles

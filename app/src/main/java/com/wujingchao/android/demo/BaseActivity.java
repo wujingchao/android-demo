@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 
-import butterknife.ButterKnife;
 
 /**
  * Created by wujingchao92@gmail.com on 2016/6/18.
@@ -28,5 +27,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+
+    static {
+        System.loadLibrary("c++_shared");
+        System.loadLibrary("native-lib");
+    }
 
 }
