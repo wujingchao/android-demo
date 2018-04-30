@@ -7,6 +7,9 @@ android:
     - android-26
     - extra-android-m2repository
     - extra-android-support
+before_install:
+     - chmod +x gradlew
+     - chmod +x accept    
 install:
   - echo y | sdkmanager "ndk-bundle"
   - echo y | sdkmanager "cmake;3.6.4111459"
@@ -14,7 +17,3 @@ install:
 script:
   - ./accept
   - ./gradlew assembleDebug
-
-before_install:
-     - chmod +x gradlew
-     - chmod +x accept
