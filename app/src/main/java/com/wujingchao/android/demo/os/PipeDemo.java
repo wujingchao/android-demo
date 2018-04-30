@@ -21,7 +21,6 @@ public class PipeDemo extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pipe_demo);
         ButterKnife.bind(this);
-        String s = "sss";
     }
 
     public native String readFromChildPipe();
