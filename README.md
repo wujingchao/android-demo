@@ -10,7 +10,7 @@
 
 ## OS
 
-- [Pipe](./app/src/main/java/com/wujingchao/android/demo/os/PipeDemo)
+- [Pipe](./app/src/main/java/com/wujingchao/android/demo/os/PipeDemo.java)
 
 ## View
 
