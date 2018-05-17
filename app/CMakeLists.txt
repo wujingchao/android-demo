@@ -18,7 +18,8 @@ add_library( # Specifies the name of the library.
              SHARED
 
             # Provides a relative path to your source file(s).
-            src/cpp/native-lib.cpp )
+            src/cpp/native-lib.cpp
+            src/cpp/SelectSocketServer.cpp)
 
 
 find_library( # Defines the name of the path variable that stores the

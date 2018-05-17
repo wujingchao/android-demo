@@ -293,6 +293,7 @@ An Intent can be explicit in order to start a specific component (a specific Act
 
 This class shows you how to use an Intent to perform some basic interactions with other apps, such as start another app, receive a result from that app, and make your app able to respond to intents from other apps.</item>
     </string-array>
+    <string name="title_activity_binder_demo">BinderDemo</string>
 
 
 </resources>

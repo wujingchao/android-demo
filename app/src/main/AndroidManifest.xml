@@ -104,7 +104,8 @@
                 <category android:name="com.wujingchao.category.DEMO" />
             </intent-filter>
         </activity>
-        <activity android:name=".os.PipeDemo"
+        <activity
+            android:name=".os.PipeDemo"
             android:label="Os/PipeDemo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -112,6 +113,36 @@
                 <category android:name="com.wujingchao.category.DEMO" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".RemoteService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote" />
+
+        <activity
+            android:name=".os.BinderDemo"
+            android:label="Os/BinderDemo"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.wujingchao.category.DEMO" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".os.IOMultiplexingDemoActivity"
+            android:label="Os/IO Multiplexing Demo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.wujingchao.category.DEMO" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".os.MockSocketIntentService"
+            android:exported="false" />
     </application>
 
 </manifest>

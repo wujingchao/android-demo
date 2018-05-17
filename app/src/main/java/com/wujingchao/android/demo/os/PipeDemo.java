@@ -22,11 +22,14 @@ public class PipeDemo extends BaseActivity {
         setContentView(R.layout.activity_pipe_demo);
         ButterKnife.bind(this);
         String s = "sss";
+        testStr(s);
     }
 
     public native String readFromChildPipe();
 
     public native void allocManyLocalRef();
+
+    public native void testStr(String s);
 
     public void readPipe(View view) {
         contentTv.setText(readFromChildPipe());

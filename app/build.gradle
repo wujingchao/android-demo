@@ -26,8 +26,9 @@ android {
         externalNativeBuild {
             cmake {
                 //采用动态链接Cmake不能拷贝libc++.so，自己在jniLib里面拷贝
-                arguments "-DANDROID_STL := libc++_shared"
-                cppFlags  "-std=c++11"
+                arguments "-DANDROID_STL := libc++_shared",
+                        "-DANDROID_DISABLE_FORMAT_STRING_CHECKS=true"
+                cppFlags "-std=c++11"
 
             }
         }
@@ -84,4 +85,3 @@ dependencies {
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
 }
-

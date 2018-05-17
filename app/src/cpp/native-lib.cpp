@@ -3,6 +3,8 @@
 //
 
 #include "util/Log.h"
+#include "SelectSocketServer.h"
+#include "EPollSocketServer.h"
 
 #include <jni.h>
 #include <sys/types.h>
@@ -14,12 +16,14 @@
 #include <string>
 #include <sstream>
 #include <memory>
-#include <dlfcn.h>//TODO
+#include <dlfcn.h>
 
 #define LOG_TAG "native-lib"
+#define NELEM(x) (sizeof(x)/sizeof(x[0]))
+
+int registerNatives(JNIEnv *pEnv);
 
 //extern "C" 加上extern C是防止C++编译器对方法名进行重整(mangled)
-
 extern "C"
 jstring Java_com_wujingchao_android_demo_os_PipeDemo_readFromChildPipe(JNIEnv *env, jobject instance) {
     int pipe_fd[2] = {0};//first for read, second for write
@@ -68,3 +72,83 @@ void Java_com_wujingchao_android_demo_os_PipeDemo_allocManyLocalRef(JNIEnv *env,
         jclass jclass1 = env->FindClass("android/os/Looper");//local reference的数量是有限制的
     }
 }
+
+extern "C"
+void Java_com_wujingchao_android_demo_os_PipeDemo_testStr(JNIEnv *env, jobject instance, jstring jstr) {
+    jboolean isCopy;
+    jsize strLen = env->GetStringLength(jstr);
+    LOGD("string len = %d ", strLen);
+    const jchar* cjchar1 = env->GetStringCritical(jstr, &isCopy);//unicode
+    env->ReleaseStringCritical(jstr, cjchar1);
+
+    const char* cchar1 = env->GetStringUTFChars(jstr, &isCopy);//modified utf8
+    LOGD(cchar1);
+    env->ReleaseStringUTFChars(jstr, cchar1);
+}
+
+//不需要extern "C",即使被方法名重整了也没有关系
+jboolean startSelectServerNative(JNIEnv *env, jobject instance, jstring ip, jint port) {
+    if (ip == nullptr) {
+        SelectSocketServer selectSocketServer(nullptr, port);
+        selectSocketServer.startServer();
+    } else {
+        const char* cip = env->GetStringUTFChars(ip, nullptr);
+        SelectSocketServer selectSocketServer(cip, port);
+        selectSocketServer.startServer();
+        env->ReleaseStringUTFChars(ip, cip);
+    }
+    return JNI_TRUE;
+}
+
+jboolean startEPollServerNative(JNIEnv *env, jobject instance, jstring ip, jint port) {
+    if (ip == nullptr) {
+
+    } else {
+
+    }
+    return JNI_TRUE;
+}
+
+
+/**
+ *  const char* name;
+    const char* signature;
+    void*       fnPtr;
+ */
+
+static JNINativeMethod gMethod[] = {
+        {"startSelectServerNative", "(Ljava/lang/String;I)Z", (void*)startSelectServerNative},
+        {"startEPollServerNative", "(Ljava/lang/String;I)Z", (void*)startEPollServerNative}
+};
+
+
+jint JNI_OnLoad(JavaVM* vm, void* /*reserved*/) {
+    JNIEnv* env = NULL;
+
+    LOGI("JNI_OnLoad");
+
+    if (vm->GetEnv(reinterpret_cast<void **>(&env), JNI_VERSION_1_4) != JNI_OK) {
+        LOGE("ERROR: GetEnv failed");
+        goto bail;
+    }
+
+    if (registerNatives(env) != JNI_TRUE) {
+        LOGE("ERROR: registerNatives failed");
+        goto bail;
+    }
+
+
+    bail:
+    return JNI_VERSION_1_4;
+}
+
+int registerNatives(JNIEnv *env) {
+    jclass IOMultiplexingDemoActivityClazz = env->FindClass("com/wujingchao/android/demo/os/IOMultiplexingDemoActivity");
+    env->RegisterNatives(IOMultiplexingDemoActivityClazz, gMethod, NELEM(gMethod));
+    return 0;
+}
+
+
+
+
+
