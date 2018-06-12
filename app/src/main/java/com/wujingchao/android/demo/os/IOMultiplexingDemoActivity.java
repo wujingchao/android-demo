@@ -1,7 +1,6 @@
 package com.wujingchao.android.demo.os;
 
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -9,18 +8,20 @@ import com.wujingchao.android.demo.BaseActivity;
 import com.wujingchao.android.demo.R;
 import com.wujingchao.android.demo.util.ThreadUtils;
 
+import java.util.Arrays;
+
 import butterknife.BindView;
-import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+
 public class IOMultiplexingDemoActivity extends BaseActivity {
 
-//    @BindView(R.id.bt_select) Button btSelect;
-//
-//    @BindView(R.id.bt_poll) Button btPoll;
-//
-//    @BindView(R.id.bt_epoll) Button btEpoll;
+    @BindView(R.id.bt_select) Button btSelect;
+
+    @BindView(R.id.bt_poll) Button btPoll;
+
+    @BindView(R.id.bt_epoll) Button btEpoll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,8 @@ public class IOMultiplexingDemoActivity extends BaseActivity {
     }
 
     private volatile boolean selectServerIsRunning;
+
+    private volatile boolean epollServerIsRunning;
 
     private Handler mHandler = new Handler();
 
@@ -51,7 +54,7 @@ public class IOMultiplexingDemoActivity extends BaseActivity {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                MockSocketIntentService.sendSocketMsg("127.0.0.1", 9000, "hello");
+                MockSocketIntentService.sendSocketMsg("127.0.0.1", 9000, "select hello");
             }
         }, 2000);
     }
@@ -67,6 +70,23 @@ public class IOMultiplexingDemoActivity extends BaseActivity {
 
     @OnClick(R.id.bt_epoll)
     public void startEpollServer() {
+        if (!epollServerIsRunning) {
+            ThreadUtils.submit(new Runnable() {
 
+                @Override
+                public void run() {
+                    startEPollServerNative("127.0.0.1", 9001);
+                    epollServerIsRunning = false;
+                }
+            });
+            epollServerIsRunning = true;
+        }
+
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                MockSocketIntentService.sendSocketMsg("127.0.0.1", 9001, "epoll hello");
+            }
+        }, 2000);
     }
 }

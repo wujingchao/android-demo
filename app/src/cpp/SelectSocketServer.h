@@ -5,43 +5,31 @@
 #ifndef ANDROID_DEMO_SELECTSOCKETSERVER_H
 #define ANDROID_DEMO_SELECTSOCKETSERVER_H
 
+#include "AbstractSocketServer.h"
 
 #include <sys/select.h>
 #include <list>
 
-class SelectSocketServer {
+class SelectSocketServer : public AbstractSocketServer{
 
 public:
-    SelectSocketServer(const char* ip, int port):
-            mIp(ip),
-            mPort(port),
-            mRunning(true) {}
+    SelectSocketServer(const char* ip, int port):AbstractSocketServer(ip, port) {
 
-    bool startServer();
+    }
+
+protected:
+
+    virtual void processClientConnect(int serverFD);
+
 
 private:
-
-    const char* mIp;
-
-    int mPort;
-
-    std::list<int> mClientFds;
 
     fd_set mAllFds;
 
     int mMaxFd = 0;
 
-    bool mRunning;
-
-    int createServer(const char* ip, int port);
-
-    void processClientConnect(int serverFD);
-
-    void acceptClient(int serverFD);
-
     void receiveClientMsg(fd_set *fds);
 
-    bool readn(int socketFd, unsigned char *buf, size_t len);
 };
 
 

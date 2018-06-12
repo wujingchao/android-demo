@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
+import butterknife.ButterKnife;
 
 
 /**
@@ -25,6 +26,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         if(!TextUtils.isEmpty(title)) {
             setTitle(title);
         }
+    }
+
+    protected void bindViews(){
+        ButterKnife.bind(this);
     }
 
 

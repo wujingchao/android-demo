@@ -81,7 +81,9 @@ dependencies {
     implementation 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     implementation 'de.hdodenhof:circleimageview:2.1.0'
-    implementation 'com.blankj:utilcode:1.6.0'
-
+    implementation 'com.blankj:utilcode:1.16.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    implementation 'com.google.protobuf:protobuf-lite:3.0.1'
 }

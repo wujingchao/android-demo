@@ -19,8 +19,12 @@ add_library( # Specifies the name of the library.
 
             # Provides a relative path to your source file(s).
             src/cpp/native-lib.cpp
-            src/cpp/SelectSocketServer.cpp)
+            src/cpp/AbstractSocketServer.cpp
+            src/cpp/SelectSocketServer.cpp
+            src/cpp/EPollSocketServer.cpp
+            src/cpp/google/protobuf/addressbook.pb.cc)
 
+include(libproto-lite.cmake)
 
 find_library( # Defines the name of the path variable that stores the
               # location of the NDK library.
@@ -34,4 +38,7 @@ target_link_libraries( # Specifies the target library.
                        native-lib
 
                        # Links the log library to the target library.
-                       ${log-lib} )
+                       ${log-lib}
+
+                       libprotobuf-lite
+                     )

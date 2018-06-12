@@ -139,10 +139,29 @@
                 <category android:name="com.wujingchao.category.DEMO" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".app.ListViewDemoActivity"
+            android:label="App/List View Demo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.wujingchao.category.DEMO" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".os.MockSocketIntentService"
             android:exported="false" />
+
+        <activity android:name=".library.NativeProtoActivity"
+                  android:label="Library/NativeProtoBufferDemo">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.wujingchao.category.DEMO" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

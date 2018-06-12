@@ -18,6 +18,7 @@ import com.wujingchao.android.demo.BaseActivity;
 import com.wujingchao.android.demo.IRemoteService;
 import com.wujingchao.android.demo.R;
 import com.wujingchao.android.demo.RemoteService;
+import com.wujingchao.android.demo.util.Trie;
 
 public class BinderDemo extends BaseActivity {
 

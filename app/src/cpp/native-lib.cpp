@@ -5,6 +5,7 @@
 #include "util/Log.h"
 #include "SelectSocketServer.h"
 #include "EPollSocketServer.h"
+#include "google/protobuf/addressbook.pb.h"
 
 #include <jni.h>
 #include <sys/types.h>
@@ -20,6 +21,9 @@
 
 #define LOG_TAG "native-lib"
 #define NELEM(x) (sizeof(x)/sizeof(x[0]))
+
+using tutorial::Person;
+using tutorial::AddressBook;
 
 int registerNatives(JNIEnv *pEnv);
 
@@ -102,11 +106,48 @@ jboolean startSelectServerNative(JNIEnv *env, jobject instance, jstring ip, jint
 
 jboolean startEPollServerNative(JNIEnv *env, jobject instance, jstring ip, jint port) {
     if (ip == nullptr) {
-
+        EPollSocketServer ePollSocketServer(nullptr, port);
+        ePollSocketServer.startServer();
     } else {
-
+        const char* cip = env->GetStringUTFChars(ip, nullptr);
+        EPollSocketServer ePollSocketServer(cip, port);
+        ePollSocketServer.startServer();
+        env->ReleaseStringUTFChars(ip, cip);
     }
     return JNI_TRUE;
+}
+
+static jbyteArray geSerializeBuffer(JNIEnv *env, jobject instance) {
+    AddressBook addressBook;
+    Person *person = addressBook.add_people();
+    person->set_name("wujingchao");
+    person->set_id(1);
+    person->set_email("wujingchao92@gmail.com");
+    Person::PhoneNumber *number1 = person->add_phones();
+    number1->set_number("17091555584");
+
+    for (int i = 0; i < 2; i++) {
+        Person::PhoneNumber *number2 = person->add_phones();
+        number2->set_number("18798012274");
+    }
+
+    void *data = malloc(sizeof(int8_t) * addressBook.ByteSize());
+    addressBook.SerializeToArray(data, addressBook.GetCachedSize());
+
+
+    AddressBook addressBook2;
+    bool success = addressBook2.ParseFromArray(data, addressBook.GetCachedSize());
+    if (!success) {
+        LOGE("parseFromArrayFail");
+    } else {
+        LOGD(addressBook2.SerializeAsString().c_str());
+    }
+
+    jbyteArray result = env->NewByteArray(addressBook.GetCachedSize());
+    //copy to java...
+    env->SetByteArrayRegion(result, 0, addressBook.GetCachedSize(), static_cast<const jbyte *>(data));
+    free(data);
+    return result;
 }
 
 
@@ -119,6 +160,10 @@ jboolean startEPollServerNative(JNIEnv *env, jobject instance, jstring ip, jint 
 static JNINativeMethod gMethod[] = {
         {"startSelectServerNative", "(Ljava/lang/String;I)Z", (void*)startSelectServerNative},
         {"startEPollServerNative", "(Ljava/lang/String;I)Z", (void*)startEPollServerNative}
+};
+
+static JNINativeMethod gMethod2[] = {
+        {"getNativeSerializeBuffer", "()[B", (void*)geSerializeBuffer}
 };
 
 
@@ -145,6 +190,9 @@ jint JNI_OnLoad(JavaVM* vm, void* /*reserved*/) {
 int registerNatives(JNIEnv *env) {
     jclass IOMultiplexingDemoActivityClazz = env->FindClass("com/wujingchao/android/demo/os/IOMultiplexingDemoActivity");
     env->RegisterNatives(IOMultiplexingDemoActivityClazz, gMethod, NELEM(gMethod));
+
+    jclass NativeProtoActivityClazz = env->FindClass("com/wujingchao/android/demo/library/NativeProtoActivity");
+    env->RegisterNatives(NativeProtoActivityClazz, gMethod2, NELEM(gMethod2));
     return 0;
 }
 
