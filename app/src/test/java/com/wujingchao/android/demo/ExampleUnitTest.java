@@ -5,6 +5,7 @@ import com.wujingchao.android.demo.util.Trie;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -42,4 +43,10 @@ public class ExampleUnitTest {
         Trie.getDFS(root, new StringBuilder(), result);
         System.out.println("DFS : " + result);
     }
+
+    @Test
+    public void testCharset() {
+        System.out.println(Arrays.toString("a".getBytes()));
+    }
+
 }

@@ -9,8 +9,12 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+import com.blankj.utilcode.util.LogUtils;
+import com.wujingchao.android.demo.util.TraceWrapper;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -36,6 +40,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
@@ -143,5 +148,29 @@ public class MainActivity extends BaseActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (BuildConfig.DEBUG && ev.getAction() == MotionEvent.ACTION_DOWN) {
+            try {
+                int i = 1/0;
+            }catch (RuntimeException e) {
+                StringBuilder builder = new StringBuilder();
+                for (StackTraceElement element : e.getStackTrace()) {
+                    builder.append(element.toString() + "\n");
+                }
+                LogUtils.d(builder.toString());
+            }
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            TraceWrapper.endSection();
+        }
     }
 }

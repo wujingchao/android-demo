@@ -30,7 +30,7 @@ int registerNatives(JNIEnv *pEnv);
 //extern "C" 加上extern C是防止C++编译器对方法名进行重整(mangled)
 extern "C"
 jstring Java_com_wujingchao_android_demo_os_PipeDemo_readFromChildPipe(JNIEnv *env, jobject instance) {
-    int pipe_fd[2] = {0};//first for read, second for write
+    int pipe_fd[2] = {0};//first for read, second fogetNativeSerializeBufferr write
     if (pipe(pipe_fd) == -1) {
         const char* msg = "create pipe error";
         LOGE(msg);
@@ -70,12 +70,56 @@ jstring Java_com_wujingchao_android_demo_os_PipeDemo_readFromChildPipe(JNIEnv *e
     }
 }
 
+static void testLocalRef1(JNIEnv *env) {
+    env->FindClass("android/os/Looper");
+}
+
+static void testLocalRef(JNIEnv *env) {
+    testLocalRef1(env);
+}
+
+
 extern "C"
 void Java_com_wujingchao_android_demo_os_PipeDemo_allocManyLocalRef(JNIEnv *env, jobject instance) {
+    /**
+     * 在native方法内部对java对象的引用都会被放到JVM维护的数据结构里面，可作为GC root
+     * 本地方法栈，局部引用Local Reference的数量是有限制的，并且会在方法返回时自动删除
+     *
+     * Note that local references cannot be faithfully implemented by conservatively scanning the native stack.
+     * The native code may store local references into global or heap data structures.
+     */
     for (int i = 0; i < 1024; i++) {
-        jclass jclass1 = env->FindClass("android/os/Looper");//local reference的数量是有限制的
+        //jclass jclass1 = env->FindClass("android/os/Looper");//local reference的数量是有限制的（针对继承于jobject的类）
+        testLocalRef(env);//本地方法返回前，localRef都不会被删除，而不是C++的那一套作用域规则
+        //will be killed
+        //JNI ERROR (app bug): local reference table overflow (max=512)
+        //but P version no limit
+
+
+        //jclass是LocalReference，在方法返回了就会被变成野指针
+        //jfieldID jmethodID则不同，表示某个类属性，方法的偏移量，不是Reference类型
     }
 }
+
+extern "C"
+void Java_com_wujingchao_android_demo_os_PipeDemo_jniException(JNIEnv *env, jobject instance) {
+    jclass jclazz = env->GetObjectClass(instance);
+    jmethodID jmethod = env->GetMethodID(jclazz, "throwRuntimeExc", "()V");
+    env->CallVoidMethod(instance, jmethod);
+
+//    if (env->ExceptionCheck()) {
+//        LOGE("jni exception occur!!!!");
+//        env->ExceptionClear();
+//    }
+    jthrowable  jthrow = env->ExceptionOccurred();
+    if (jthrow) {
+        env->ExceptionClear();
+        env->Throw(jthrow);
+    } else {
+        LOGE("jthrow is null!!!");
+    }
+}
+
 
 extern "C"
 void Java_com_wujingchao_android_demo_os_PipeDemo_testStr(JNIEnv *env, jobject instance, jstring jstr) {
@@ -131,20 +175,21 @@ static jbyteArray geSerializeBuffer(JNIEnv *env, jobject instance) {
         number2->set_number("18798012274");
     }
 
-    void *data = malloc(sizeof(int8_t) * addressBook.ByteSize());
+    void *data = malloc(addressBook.ByteSize());
     addressBook.SerializeToArray(data, addressBook.GetCachedSize());
 
 
-    AddressBook addressBook2;
-    bool success = addressBook2.ParseFromArray(data, addressBook.GetCachedSize());
-    if (!success) {
-        LOGE("parseFromArrayFail");
-    } else {
-        LOGD(addressBook2.SerializeAsString().c_str());
-    }
+    //TODO deserializable fail!!!! why!!! previous is ok...
+//    AddressBook addressBook2;
+//    bool success = addressBook2.ParsePartialFromArray(data, addressBook.GetCachedSize());
+//    if (!success) {
+//        LOGE("parseFromArrayFail");
+//    } else {
+//        LOGD(addressBook2.SerializeAsString().c_str());
+//    }
 
     jbyteArray result = env->NewByteArray(addressBook.GetCachedSize());
-    //copy to java...
+    //copy to java region...
     env->SetByteArrayRegion(result, 0, addressBook.GetCachedSize(), static_cast<const jbyte *>(data));
     free(data);
     return result;

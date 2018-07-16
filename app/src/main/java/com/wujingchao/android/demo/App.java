@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
+import com.wujingchao.android.demo.util.TraceWrapper;
 
 /**
  * Created by wujingchao on 18/4/29.
@@ -21,6 +22,7 @@ public class App extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         ctx = base;
+        TraceWrapper.beginSection("App cold start");
     }
 
     @Override

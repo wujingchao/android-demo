@@ -47,7 +47,8 @@ public class OpenRemoteDebugActivity extends BaseActivity {
     }
 
     private String getWifiAddress() {
-        WifiManager wifiMgr = (WifiManager) getSystemService(WIFI_SERVICE);
+        WifiManager wifiMgr = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
+        assert wifiMgr != null;
         WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
         if(wifiInfo != null) {
             int ip = wifiInfo.getIpAddress();

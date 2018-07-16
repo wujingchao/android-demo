@@ -19,7 +19,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppStart">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -153,12 +153,20 @@
             android:name=".os.MockSocketIntentService"
             android:exported="false" />
 
-        <activity android:name=".library.NativeProtoActivity"
-                  android:label="Library/NativeProtoBufferDemo">
-
+        <activity
+            android:name=".library.NativeProtoActivity"
+            android:label="Library/NativeProtoBufferDemo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="com.wujingchao.category.DEMO" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".library.RetrofitDemoActivity"
+            android:label="Library/RetrofitDemo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.wujingchao.category.DEMO" />
             </intent-filter>
         </activity>

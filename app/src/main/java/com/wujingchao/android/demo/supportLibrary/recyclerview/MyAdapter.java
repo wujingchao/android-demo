@@ -28,7 +28,7 @@ class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-         holder.imageView.setImageResource(resIds.get(position));
+         holder.imageView.setImageResource(resIds.get(position));//TODO  ANR....
 
          holder.imageView.setOnClickListener(new View.OnClickListener() {
              @Override
